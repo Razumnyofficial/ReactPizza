@@ -5,11 +5,13 @@ import Sort from "../components/Sort";
 import Skeleton from "../components/Pizzablock/Skeleton";
 import PizzaBlock from "../components/Pizzablock";
 import { useState, useEffect } from "react";
+import { SearchContext } from "../App";
 
-const Home = ({ searchValue }) => {
+const Home = () => {
+  const { searchValue } = React.useContext(SearchContext);
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [categoryId, setCategotyId] = useState(1);
+  const [categoryId, setCategotyId] = useState(0);
   const [sortType, setSortType] = useState({
     name: "популярности",
     sortProperty: "rating",
